@@ -2124,8 +2124,10 @@ function onHand(fn){ handSubs.push(fn); }
     drawBat(st, bp, Math.max(0.02, t));
     if(hit) drawHit(st, ex, bp, (t - cf) / (1 - cf));
     const tan = bp.tangent;
+    // Secondary to the path, not competing with it: this reference line lands on
+    // top of the brightest part of the gold arc, so it stays thin and dim.
     st.line(V.sub(contact, V.mul(tan,1.7)), V.add(contact, V.mul(tan,1.1)),
-            C.burnt, 1.7, .9);
+            C.burnt, 1.2, .6);
     st.label([0, 6.6, 0.05], "PITCHER", C.muted, 0, 10);
     st.render();
 
